@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+bool isPrimeRecursive(int n, int divisor = 2) {
+
+    if (n <= 2)
+        return (n == 2);
+    if (n % divisor == 0)
+        return false;
+    if (divisor * divisor > n)
+        return true;
+
+    return isPrimeRecursive(n, divisor + 1);
+}
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    if (isPrimeRecursive(n))
+        cout << "true";
+    else
+        cout << "false";
+
+    return 0;
+}
