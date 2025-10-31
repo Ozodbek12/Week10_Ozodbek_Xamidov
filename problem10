@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+
+double power(double x, int y) {
+
+    if (y == 0)
+        return 1;
+
+    if (y < 0)
+        return 1 / power(x, -y);
+
+
+    if (y % 2 == 0) {
+        double half = power(x, y / 2);
+        return half * half;
+    } else {
+        return x * power(x, y - 1);
+    }
+}
+
+int main() {
+    double x;
+    int y;
+
+    cout << "Enter base (x): ";
+    cin >> x;
+    cout << "Enter exponent (y): ";
+    cin >> y;
+
+    cout << x << "^" << y << " = " << power(x, y);
+    return 0;
+}
