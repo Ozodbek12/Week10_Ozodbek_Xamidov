@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+bool PowerTwo(int n) {
+    if (n == 1) return true;
+    if (n == 0 || n % 2 != 0) return false;
+
+    return PowerTwo(n / 2);
+}
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    if (PowerTwo(n))
+        cout << n << " is a power of 2.";
+    else
+        cout << n << " is not a power of 2.";
+
+    return 0;
+}
