@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int countZeros(int n) {
+    if (n < 0)
+        n = -n;
+
+
+    if (n < 10)
+        return (n == 0) ? 1 : 0;
+
+    int lastDigit = n % 10;
+
+    if (lastDigit == 0)
+        return 1 + countZeros(n / 10);
+    else
+        return countZeros(n / 10);
+}
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    cout << "Number of zeros in " << n << " = " << countZeros(n);
+    return 0;
+}
