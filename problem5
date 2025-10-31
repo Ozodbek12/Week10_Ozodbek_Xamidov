@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int NumberOfEven(int num) {
+    if (num == 0)
+        return 0;
+
+    int lastDigit = num % 10;
+
+    return (lastDigit % 2 == 0 ? 1 : 0) + NumberOfEven(num / 10);
+}
+
+int main() {
+    cout << NumberOfEven(2468); // Output: 4
+    return 0;
+}
